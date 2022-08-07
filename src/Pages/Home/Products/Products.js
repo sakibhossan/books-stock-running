@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // import './Products.css';
 
 const Products = ({product}) => {
-    const { name, img, description, price} = product;
+    const {id, name, img, description, price} = product;
+    const navigate = useNavigate();
+    const navigateToProceedCheckOut = id =>{
+        navigate(`/product/${id}`);
+
+    }
     return (
         <div className='product'>
           
@@ -10,7 +16,7 @@ const Products = ({product}) => {
             <h2>Name:{name}</h2>
             <p>Price:{price}</p>
             <p><small>{description}</small></p>
-        <button>Add To Cart</button>
+        <button onClick={() =>navigateToProceedCheckOut(id)} className='btn btn-dark'>Add To Cart</button>
           </div>
        
     );
