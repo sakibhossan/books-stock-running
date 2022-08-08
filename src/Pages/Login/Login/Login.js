@@ -1,15 +1,19 @@
 import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import auth from '../../../firebase.init';
+import LoginSocial from '../LoginSocial/LoginSocial';
 
 
 const Login = () => {
 
+
+  const location = useLocation();
 const navigate = useNavigate();
 const emailRef = useRef('');
 const passwordRef = useRef('');
+let from = location.state?.from?.pathname || "/";
 const [
   signInWithEmailAndPassword,
   user,
@@ -26,7 +30,7 @@ const navigateRegister = event =>{
     navigate('/register');
 }
 if(user){
-  navigate('/home');
+  navigate(from, {replace: true});
 }
 const FormHandleSubmit = event =>{
   event.preventDefault();
@@ -52,13 +56,13 @@ const FormHandleSubmit = event =>{
         <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
       </Form.Group>
       
-      <Button variant="primary" type="submit">
+      <Button variant="dark" type="submit">
         Submit
       </Button>
     </Form>
     <p>New to Books-Stock?<Link to="/register" className='text-primary pe-auto text-decoration-none' onclick={navigateRegister}> Please Register!!!</Link></p>
 
-
+<LoginSocial></LoginSocial>
 
         </div>
     );
