@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import auth from '../../../firebase.init';
 import LoginSocial from '../LoginSocial/LoginSocial';
@@ -20,6 +20,18 @@ const [
   loading,
   error,
 ] = useSignInWithEmailAndPassword(auth);
+const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+  auth
+);
+let errorElement;
+if (error) {
+    errorElement=
+     ( <div>
+
+        <p className='text-danger'>Error: {error.message}</p>
+      </div>)
+    
+  }
 
 
 
@@ -28,6 +40,12 @@ const [
 
 const navigateRegister = event =>{
     navigate('/register');
+}
+const resetPassword =async() =>{
+  const email = emailRef.current.value;
+  await sendPasswordResetEmail(email);
+  alert('Sent email');
+
 }
 if(user){
   navigate(from, {replace: true});
@@ -57,10 +75,12 @@ const FormHandleSubmit = event =>{
       </Form.Group>
       
       <Button variant="dark" type="submit">
-        Submit
+        Login
       </Button>
     </Form>
+    {errorElement}
     <p>New to Books-Stock?<Link to="/register" className='text-primary pe-auto text-decoration-none' onclick={navigateRegister}> Please Register!!!</Link></p>
+    <p>Forget Password ?<Link to="/register" className='text-primary pe-auto text-decoration-none' onclick={resetPassword}> Forget Password!!!</Link></p>
 
 <LoginSocial></LoginSocial>
 
