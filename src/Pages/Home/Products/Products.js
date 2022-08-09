@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './Products.css';
+import './Products.css';
 
 const Products = ({product}) => {
-    const {id, name, img, description, price} = product;
+    const {id, name, img, description, price,quantity, supplier} = product;
     const navigate = useNavigate();
     const navigateToProceedCheckOut = id =>{
         navigate(`/product/${id}`);
@@ -12,12 +12,20 @@ const Products = ({product}) => {
     return (
         <div className='product'>
           
-           <img src={img} alt="" />
-            <h2>Name:{name}</h2>
-            <p>Price:{price}</p>
+           <img className='ps-5 mt-2' src={img} alt="" />
+          <div className='product-info'>
+            <p className='text-size'>{name}</p>
+            
             <p><small>{description}</small></p>
-        <button onClick={() =>navigateToProceedCheckOut(id)} className='btn btn-dark'>Add To Cart</button>
+            <p>Price:{price}</p>
+            <p>quantity:{quantity}</p>
+            <p>Supplier Name:{supplier}</p>
+
           </div>
+       
+       <button onClick={() =>navigateToProceedCheckOut(id)} className='btn-cart'  >Add To Cart</button>
+       </div>
+          
        
     );
 };
