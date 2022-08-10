@@ -67,5 +67,38 @@
         
         "description": "We’ve turned learning vocabulary into an addictive game. Start learning new words today! Earn badges. Compete with friends. Get vocab lists for your next test or favorite book.",
         "img": "https://i.ibb.co/gFwxHsK/images-5.jpg"
+    },
+    {
+        
+        "id": "7",
+        "name": "LONG PHOTO DICTONARY OF AMERICAN ENGLISH",
+        "price": "200",
+        "quantity": "58",
+        "supplier":"Mehedi",
+        
+        "description": "We’ve turned learning vocabulary into an addictive game. Start learning new words today! Earn badges. Compete with friends. Get vocab lists for your next test or favorite book.",
+        "img": "https://i.ibb.co/yhn7fcc/images-6.jpg"
+    },
+    {
+        
+        "id": "8",
+        "name": "THE AMERICAN LANGUAGE",
+        "price": "250",
+        "quantity": "68",
+        "supplier":"Choyan",
+        
+        "description": "We’ve turned learning vocabulary into an addictive game. Start learning new words today! Earn badges. Compete with friends. Get vocab lists for your next test or favorite book.",
+        "img": "https://i.ibb.co/b3CKShq/download-1.jpg"
+    },
+    {
+        
+        "id": "9",
+        "name": "ENGLISH FILE FOUR",
+        "price": "310",
+        "quantity": "28",
+        "supplier":"Abdullah",
+        
+        "description": "We’ve turned learning vocabulary into an addictive game. Start learning new words today! Earn badges. Compete with friends. Get vocab lists for your next test or favorite book.",
+        "img": "https://i.ibb.co/GFfSjsv/download-2.jpg"
     }
 ]
