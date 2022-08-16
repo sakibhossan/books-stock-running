@@ -10,7 +10,7 @@ const Products = ({product}) => {
 
     }
     return (
-        <div className='product mt-2'>
+        <div className='product mt-2 ms-5'>
           
            <img className='ps-5 mt-2' src={img} alt="" />
           <div className='product-info'>
