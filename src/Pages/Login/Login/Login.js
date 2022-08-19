@@ -7,6 +7,8 @@ import Loading from '../../Shared/Loading/Loading';
 import LoginSocial from '../LoginSocial/LoginSocial';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import useToken from '../../../hooks/useToken';
 
 
 const Login = () => {
@@ -26,6 +28,7 @@ const [
 const [sendPasswordResetEmail] = useSendPasswordResetEmail(
   auth
 );
+const [token] = useToken(user);
 let errorElement;
 if(loading){
   return <Loading></Loading>
@@ -46,7 +49,7 @@ if (error) {
 
 
 
-if(user){
+if(token){
   navigate(from, {replace: true});
 }
 const FormHandleSubmit =async(event) =>{
@@ -56,6 +59,8 @@ const FormHandleSubmit =async(event) =>{
 
 
   await signInWithEmailAndPassword(email, password)
+  
+  
 }
 const navigateRegister = event =>{
   navigate('/register');

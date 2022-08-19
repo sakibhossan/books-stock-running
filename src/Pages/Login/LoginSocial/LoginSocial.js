@@ -1,16 +1,17 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import google from '../../../Images/google.png';
 import Loading from '../../Shared/Loading/Loading';
 
 const LoginSocial = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    // const gooogleLogin = () =>{
-
-    // }
+   const [token] = useToken(user);
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let errorElement;
 
 if(loading){
@@ -26,8 +27,8 @@ if(loading){
           </div>)
         
       }
-      if(user){
-        navigate('/home');
+      if(token){
+        navigate(from, {replace: true});
       }
     return (
         <div>
