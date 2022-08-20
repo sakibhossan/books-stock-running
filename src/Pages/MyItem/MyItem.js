@@ -14,15 +14,12 @@ const MyItem = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const [myOders, setMyOders] = useState([]);
-    const [orders, setOrders] = useOrders();
+    const [orders, setOrders] = useOrders([]);
    
-
-
-   
-    const deleteUser = (id) => {
+const deleteUser = (id) => {
         const proceed = window.confirm("Are your sure deliverd this product");
         if (proceed) {
-          console.log("user id: ", id);
+        
           const url = `http://localhost:5000/collectOrder/${id}`;
           fetch(url, {
             method: "DELETE",
@@ -30,7 +27,7 @@ const MyItem = () => {
     .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              const remain =orders.filter(order =>order._id !== id);
+              const remain =orders?.filter(order =>order._id !== id);
              
               setOrders(remain);
             })
