@@ -8,11 +8,38 @@ import auth from '../../firebase.init';
 import {signOut} from 'firebase/auth';
 import axiosSecret from '../../api/axiosSecret';
 import './MyItem.css'
+import useOrders from '../../hooks/useOrders';
 
 const MyItem = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const [myOders, setMyOders] = useState([]);
+    const [orders, setOrders] = useOrders();
+   
+
+
+   
+    const deleteUser = (id) => {
+        const proceed = window.confirm("Are your sure deliverd this product");
+        if (proceed) {
+          console.log("user id: ", id);
+          const url = `http://localhost:5000/collectOrder/${id}`;
+          fetch(url, {
+            method: "DELETE",
+          })
+    .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              const remain =orders.filter(order =>order._id !== id);
+             
+              setOrders(remain);
+            })
+            console.log(orders)
+        }
+    }
+
+
+
     useEffect(() =>{
        
         const getmyOrder = async()=>{
@@ -45,7 +72,9 @@ const MyItem = () => {
                    <p>{order.email}</p>
                  </div>
                  <div className=''>
-                    <button className='mt-4' >Deliverd</button>
+                    <button 
+                    onClick={()=>{deleteUser(order._id)}}
+                    className='btn-style mt-4' >Deliverd</button>
                  </div>
                </div>
 

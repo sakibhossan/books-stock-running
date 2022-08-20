@@ -5,3 +5,7 @@
     background-color:wheat;
     justify-content: space-between;
 }
+.btn-style{
+    border-radius: 5px;
+    background-color: orange;
+}

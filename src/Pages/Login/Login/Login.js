@@ -5,7 +5,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import LoginSocial from '../LoginSocial/LoginSocial';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import useToken from '../../../hooks/useToken';
@@ -102,7 +102,7 @@ toast('please enter your email address');
     <p>Forget Password ?<button  className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password!!!</button></p>
 
 <LoginSocial></LoginSocial>
-<ToastContainer />
+
 
         </div>
     );

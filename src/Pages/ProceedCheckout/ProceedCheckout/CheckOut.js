@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React from 'react';
-
-import { ToastContainer } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -59,7 +57,7 @@ const CheckOut = () => {
                 <br />
                 <input className='btn btn-dark ms-5' type="submit" value="Please Order" />
             </form>
-            <ToastContainer></ToastContainer>
+           
         </div>
     );
 };
