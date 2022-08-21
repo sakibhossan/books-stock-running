@@ -14,7 +14,7 @@ const MyItem = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const [myOders, setMyOders] = useState([]);
-    const [orders, setOrders] = useOrders([]);
+    const [orders, setOrders] = useOrders();
    
 const deleteUser = (id) => {
         const proceed = window.confirm("Are your sure deliverd this product");
@@ -31,7 +31,7 @@ const deleteUser = (id) => {
              
               setOrders(remain);
             })
-            console.log(orders)
+           
         }
     }
 
