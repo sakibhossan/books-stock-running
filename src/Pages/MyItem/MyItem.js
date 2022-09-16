@@ -27,9 +27,9 @@ const deleteUser = (id) => {
     .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              const remain =orders?.filter(order =>order._id !== id);
+              const remain =myOders?.filter(order =>order._id !== id);
              
-              setOrders(remain);
+              setMyOders(remain);
             })
            
         }
