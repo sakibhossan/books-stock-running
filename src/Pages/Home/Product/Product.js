@@ -5,9 +5,12 @@ import './Product.css';
 const Product = () => {
     const [products, setProducts] =useState([]);
     useEffect(()=>{
-        fetch('https://books-stock-running-server.vercel.app/')
+        fetch('http://localhost:5000/product/')
         .then(res => res.json())
-        .then(data => setProducts(data));
+        .then(data => {
+            console.log(data);
+            setProducts(data)
+        });
     },[])
     return (
         <div id="product">

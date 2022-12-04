@@ -8,7 +8,7 @@ const AddItem = () => {
     const onSubmit = data => {
 
         console.log(data);
-        const url =`https://books-stock-running-server.vercel.app/`;
+        const url =`http://localhost:5000/product/`;
         fetch(url,{
             method: 'POST',
         headers: {

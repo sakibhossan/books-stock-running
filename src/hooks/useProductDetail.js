@@ -4,7 +4,7 @@ const useProductDetail = (productId) =>{
      const [products, setProducts] = useState({});
 
 useEffect(() =>{
-    const url = `https://books-stock-running-server.vercel.app/${productId}`;
+    const url = `http://localhost:5000/product/${productId}`;
     fetch(url)
     .then(res => res.json())
     .then(data => setProducts(data));
