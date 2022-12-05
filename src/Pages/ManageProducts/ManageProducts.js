@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const handleDeleteButton = (id) =>{
         const handleProcced = window.confirm('Are you sure delete this product');
         if(handleProcced){
-            const url= `https://books-stock-running-server-l8e0rrms9-sakibhossan.vercel.app/product/${id}`
+            const url= `http://localhost:5000/product/${id}`
             fetch(url,{
                 method: 'DELETE',
             })
