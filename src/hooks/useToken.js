@@ -9,7 +9,7 @@ const useToken = user =>{
     
     const email = user?.user?.email;
     if(email){
-        const {data} = await axios.post('http://localhost:5000/getToken',{email});
+        const {data} = await axios.post('https://books-stock-running-server.vercel.app/getToken',{email});
     setToken(data.accessToken);
     localStorage.setItem('accessToken',data.accessToken);
     }

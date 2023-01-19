@@ -22,7 +22,7 @@ const CheckOut = () => {
             phone:event.target.phone.value
         }
       
-        axios.post('http://localhost:5000/collectOrder',order)
+        axios.post('https://books-stock-running-server.vercel.app/collectOrder',order)
         .then(res=>{
             const {data} = res;
             

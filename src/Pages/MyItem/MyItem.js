@@ -20,7 +20,7 @@ const deleteUser = (id) => {
         const proceed = window.confirm("Are your sure deliverd this product");
         if (proceed) {
         
-          const url = `http://localhost:5000/collectOrder/${id}`;
+          const url = `https://books-stock-running-server.vercel.app/collectOrder/${id}`;
           fetch(url, {
             method: "DELETE",
           })
@@ -41,7 +41,7 @@ const deleteUser = (id) => {
        
         const getmyOrder = async()=>{
             const email = user?.email;
-            const url =`http://localhost:5000/collectOrder?email=${email}`;
+            const url =`https://books-stock-running-server.vercel.app/collectOrder?email=${email}`;
        try{
         const {data} = await axiosSecret.get(url);
         setMyOders(data);
